@@ -1,44 +1,36 @@
-import { Component } from 'react';
+import { useState } from 'react';
 
-class EventPractice extends Component {
-  state = {
-    name: '',
-    message: '',
+const EventPractice = () => {
+  const [username, setName] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handleChangeName = (e) => {
+    setName(e.target.value);
+    console.log(e.target.value);
   };
-  render() {
-    const handleChange = (e) => {
-      this.setState({ [e.target.name]: e.target.value });
-    };
 
-    const handleClick = () => {
-      alert(this.state.name + ' :  ' + this.state.message);
-    };
+  const handleChangeMessage = (e) => {
+    setMessage(e.target.value);
+    console.log(e.target.value);
+  };
 
-    const handleKeyPress = (e) => {
-      if (e.key === 'Enter') {
-        handleClick();
-      }
-    };
-    return (
-      <div>
-        <input
-          type="text"
-          placeholder="type your name"
-          name="name"
-          value={this.state.name}
-          onChange={handleChange}
-        ></input>
-        <input
-          type="text"
-          placeholder="type message"
-          name="message"
-          value={this.state.message}
-          onChange={handleChange}
-          onKeyPress={handleKeyPress}
-        ></input>
-        <button onClick={handleClick}>Click</button>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <input
+        type="text"
+        placeholder="type your name"
+        value={username}
+        onChange={handleChangeName}
+      ></input>
+      <input
+        type="text"
+        placeholder="type message"
+        value={message}
+        onChange={handleChangeMessage}
+      ></input>
+      <button onClick={() => alert('clicked')}></button>
+    </div>
+  );
+};
+
 export default EventPractice;
