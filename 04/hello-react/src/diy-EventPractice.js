@@ -1,17 +1,18 @@
 import { useState } from 'react';
 
 const EventPractice = () => {
-  const [username, setName] = useState('');
-  const [message, setMessage] = useState('');
+  const [form, setForm] = useState({
+    username: '',
+    message: '',
+  });
 
-  const handleChangeName = (e) => {
-    setName(e.target.value);
-    console.log(e.target.value);
-  };
-
-  const handleChangeMessage = (e) => {
-    setMessage(e.target.value);
-    console.log(e.target.value);
+  const { username, message } = form;
+  const onChange = (e) => {
+    const nextForm = {
+      ...form,
+      [e.target.name]: e.target.value,
+    };
+    setForm(nextForm);
   };
 
   return (
@@ -19,14 +20,16 @@ const EventPractice = () => {
       <input
         type="text"
         placeholder="type your name"
+        name="username"
         value={username}
-        onChange={handleChangeName}
+        onChange={onChange}
       ></input>
       <input
         type="text"
         placeholder="type message"
+        name="message"
         value={message}
-        onChange={handleChangeMessage}
+        onChange={onChange}
       ></input>
       <button onClick={() => alert('clicked')}></button>
     </div>
