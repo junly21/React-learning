@@ -12,9 +12,22 @@ const IterationSample = () => {
   const [nextId, setNextId] = useState(5);
 
   const nameList = names.map((name) => {
-    return <li key={name.id}>{name.text}</li>;
+    return (
+      <li
+        key={name.id}
+        onDoubleClick={() => {
+          onRemove(name.id);
+        }}
+      >
+        {name.text}
+      </li>
+    );
   });
 
+  const onRemove = (id) => {
+    const remainName = names.filter((name) => name.id !== id);
+    setNames(remainName);
+  };
   const onChange = (e) => {
     setText(e.target.value);
     console.log(e.target.value);
