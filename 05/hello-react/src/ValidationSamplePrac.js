@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import "./ValidationSample.css";
+import React, { Component } from 'react';
+import './ValidationSample.css';
 class ValidationSample extends Component {
   input = React.createRef();
   state = {
-    password: "",
+    password: '',
     validated: false,
     clicked: false,
   };
@@ -34,7 +34,7 @@ class ValidationSample extends Component {
     const handleButtonClick = () => {
       this.setState({
         clicked: true,
-        validated: this.state.password === "0000",
+        validated: this.state.password === '0000',
       });
       this.input.current.focus();
     };
@@ -49,9 +49,9 @@ class ValidationSample extends Component {
           className={
             this.state.clicked
               ? this.state.validated
-                ? "success"
-                : "failure"
-              : ""
+                ? 'success'
+                : 'failure'
+              : ''
           }
         ></input>
         <button onClick={handleButtonClick}>검증하기222</button>
@@ -74,3 +74,4 @@ class ValidationSample extends Component {
   }
 }
 export default ValidationSample;
+//new commit
