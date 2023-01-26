@@ -5,17 +5,17 @@ class ValidationSample extends Component {
   state = {
     password: '',
     clicked: false,
-    validated: false
+    validated: false,
   };
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState({
-      password: e.target.value
+      password: e.target.value,
     });
   };
   handleButtonClick = () => {
     this.setState({
       clicked: true,
-      validated: this.state.password === '0000'
+      validated: this.state.password === '0000',
     });
     this.input.current.focus();
   };
