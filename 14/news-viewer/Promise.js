@@ -3,7 +3,7 @@ function increase(number) {
     setTimeout(() => {
       const result = number + 10;
       if (result > 50) {
-        const e = new Error("50을 초과했다.");
+        const e = new Error('50을 초과했다.');
         return reject(e);
       }
       resolve(result);
